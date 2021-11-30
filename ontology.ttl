@@ -1,0 +1,119 @@
+@prefix : <https://sikt.no/ontology/dlr#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+:Resource a rdfs:Class ;
+  rdfs:comment "The basic resource type of DLR" .
+
+:UnusedProperty a rdfs:Class ;
+  rdfs:comment "A property that is present in the data model, but is not used" .
+
+:BirdOnlyProperty a rdfs:Class ;
+  rdfs:comment "A property that is only used in BIRD" .
+
+:Feature a rdfs:Class ;
+  rdfs:comment "An descriptive key-value pair describing a resource" .
+
+:FeatureKey a rdfs:Class ;
+  rdfs:comment "The class of property used in DLR" .
+
+:identifier a rdf:Property ;
+  rdfs:comment "The unique identifier of a resource" ;
+  rdfs:domain :Resource ;
+  rdfs:range xsd:string .
+
+:feature a rdf:Property ;
+  rdfs:comment "The properties of a resource" ;
+  rdfs:domain :Resource ;
+  rdfs:range :Feature .
+
+:featureKey a rdfs:Property ;
+  rdfs:comment "A property value in DLR/BIRD" ;
+  rdfs:domain :Feature ;
+  rdfs:range :FeatureKey .
+
+:featureValue a rdfs:Property ;
+  rdfs:comment "A property value in DLR/BIRD" ;
+  rdfs:domain :Feature ;
+  rdfs:range xsd:string .
+
+:dlr_title a :FeatureKey ;
+  rdfs:comment "The name given to the resource by its creator" ;
+  rdfs:domain :Feature ;
+  rdfs:range xsd:string .
+
+:dlr_description a :FeatureKey ;
+  rdfs:comment "A textual description of the resource" ;
+  rdfs:domain :Feature ;
+  rdfs:range xsd:string .
+
+:dlr_type a :FeatureKey ;
+  rdfs:comment "The kind of thing the resource is, either \"file\" or \"link\"" ;
+  rdfs:domain :Feature ;
+  rdfs:range xsd:string .
+
+:dlr_title_alternative a :FeatureKey, :BirdOnlyProperty ;
+  rdfs:comment "An alternative title for the resource, potentially a translation" ;
+  rdfs:domain :Feature ;
+  rdfs:range xsd:string .
+
+:dlr_subject_nsi_id a :FeatureKey, :BirdOnlyProperty ;
+  rdfs:comment "A Norwegian Science Index (NVI) identifier numeric string" ;
+  rdfs:domain :Feature ;
+  rdfs:range xsd:string .
+
+:dlr_time_expire a :FeatureKey, :UnusedProperty ;
+  rdfs:comment "A timestamp string defining when the resource should be unpublished" ;
+  rdfs:domain :Feature ;
+  rdfs:range xsd:string .
+
+:dlr_time_released a :FeatureKey, :UnusedProperty ;
+  rdfs:comment "WE DO NOT KNOW" ;
+  rdfs:domain :Feature ;
+  rdfs:range xsd:string .
+
+:dlr_observational_count a :FeatureKey, :BirdOnlyProperty ;
+  rdfs:comment "A number string defining the number of observations in a data set" ;
+  rdfs:domain :Feature ;
+  rdfs:range xsd:string .
+
+:dlr_readme a :FeatureKey, :BirdOnlyProperty ;
+  rdfs:comment "WE DO NOT KNOW" ;
+  rdfs:domain :Feature ;
+  rdfs:range xsd:string .
+
+:dlr_licensehelper_contains_other_peoples_work a :FeatureKey ;
+  rdfs:comment "A boolean string indicating if the resource contains other people than the creator's work (possible values: FIX THIS)" ;
+  rdfs:domain :Feature ;
+  rdfs:range xsd:string .
+
+:dlr_licensehelper_usage_cleared_with_owner a :FeatureKey ;
+  rdfs:comment "A string indicating that the usage is cleared with the creator (possible values: FIX THIS)" ;
+  rdfs:domain :Feature ;
+  rdfs:range xsd:string .
+
+:dlr_licensehelper_resource_restriction a :FeatureKey ;
+  rdfs:comment "A textual description of the resource" ;
+  rdfs:domain :Feature ;
+  rdfs:range xsd:string .
+
+:dlr_licensehelper_others_can_modify_and_build_upon a :FeatureKey ;
+  rdfs:comment "A textual description of the resource" ;
+  rdfs:domain :Feature ;
+  rdfs:range xsd:string .
+:dlr_licensehelper_can_be_used_commerciall a :FeatureKey ;
+  rdfs:comment "A textual description of the resource" ;
+  rdfs:domain :Feature ;
+  rdfs:range xsd:string .
+
+:dlr_time_published a :FeatureKey ;
+  rdfs:comment "A timestamp string defining when the resource was published" ;
+  rdfs:domain :Feature ;
+  rdfs:range xsd:string .
+
+:dlr_status_published a :FeatureKey ;
+  rdfs:comment "A string containing a boolean value indicating if the resource is published" ;
+  rdfs:domain :Feature ;
+  rdfs:range xsd:string .
+
