@@ -4,7 +4,7 @@
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
 :Resource a rdfs:Class ;
-  rdfs:comment "The basic resource type of DLR" .
+  rdfs:comment "The basic resource type of DLR (Used to represent 'Resource', 'Content', 'Creator', 'Contributor', 'Authority, 'Publisher', 'Owner', 'License')" .
 
 :UnusedProperty a rdfs:Class ;
   rdfs:comment "A property that is present in the data model, but is not used" .
@@ -38,28 +38,411 @@
   rdfs:domain :Feature ;
   rdfs:range xsd:string .
 
-:dlr_title a :FeatureKey ;
-  rdfs:comment "The name given to the resource by its creator" ;
+:dlr_access a :FeatureKey ;
+  rdfs:comment "A string indicating that the usage is cleared with the creator (possible values: 'open' | 'restricted')" ;
   rdfs:domain :Feature ;
   rdfs:range xsd:string .
+
+:dlr_app a :FeatureKey ;
+  rdfs:comment "A string indicating what system this resource belongs to (possible values: 'learning' | 'research')" ;
+  rdfs:domain :Feature ;
+  rdfs:range xsd:string .
+
+:dlr_authority a :FeatureKey ;
+  rdfs:comment "A string containing a boolean value indicating if the resource is an Authority" ;
+  rdfs:domain :Feature ;
+  rdfs:range xsd:string .
+
+:dlr_authority_entity_type a :FeatureKey ;
+  rdfs:comment "A string indicating what type of BARE authority this is (possible values: 'person' | 'coorporation')" ;
+  rdfs:domain :Feature ;
+  rdfs:range xsd:string .
+
+:dlr_authority_id a :FeatureKey ;
+  rdfs:comment "The BARE identifier of the authority" ;
+  rdfs:domain :Feature ;
+  rdfs:range xsd:string .
+
+:dlr_authority_identifier a :FeatureKey ;
+  rdfs:comment "The unique identifier of an authority" ;
+  rdfs:domain :Feature ;
+  rdfs:range xsd:string .
+
+:dlr_authority_name a :FeatureKey ;
+  rdfs:comment "The name of the authority according to BARE" ;
+  rdfs:domain :Feature ;
+  rdfs:range xsd:string .
+
+:dlr_authority_time_created a :FeatureKey ;
+  rdfs:comment "A timestamp string defining when the authority was created" ;
+  rdfs:domain :Feature ;
+  rdfs:range xsd:string .
+
+:dlr_content a :FeatureKey ;
+  rdfs:comment "A string representing the content (uri if 'link', filename if 'file')" ;
+  rdfs:domain :Feature ;
+  rdfs:range xsd:string .
+
+:dlr_content_content_type a :FeatureKey ;
+  rdfs:comment "A string representing the content type (possible values: TODO)" ;
+  rdfs:domain :Feature ;
+  rdfs:range xsd:string .
+
+:dlr_content_default a :FeatureKey ;
+  rdfs:comment "A string containing a boolean value indicating if this content is the default content" ;
+  rdfs:domain :Feature ;
+  rdfs:range xsd:string .
+
+:dlr_content_generated a :FeatureKey ;
+  rdfs:comment "A string containing a boolean value indicating if the content is generated" ;
+  rdfs:domain :Feature ;
+  rdfs:range xsd:string .
+
+:dlr_content_height a :FeatureKey ;
+  rdfs:comment "A numeric string containing the height of the content if applicable" ;
+  rdfs:domain :Feature ;
+  rdfs:range xsd:string .
+
+:dlr_content_indexable a :FeatureKey ;
+:dlr_content_indexed a :FeatureKey ;
+
+:dlr_content_kaltura_presentation_id a :FeatureKey ;
+  rdfs:comment "A string containing the kaltura id of the contents kaltura entry" ;
+  rdfs:domain :Feature ;
+  rdfs:range xsd:string .
+
+:dlr_content_locale a :FeatureKey ;
+
+:dlr_content_master a :FeatureKey, :BirdOnlyProperty ;
+  rdfs:comment "A string containing a boolean value indicating if the content is master (initial upload/link)" ;
+  rdfs:domain :Feature ;
+  rdfs:range xsd:string .
+
+:dlr_content_master_part a :FeatureKey, :BirdOnlyProperty ;
+
+:dlr_content_mime_type a :FeatureKey ;
+  rdfs:comment "A string specifying the mime-type of the content" ;
+  rdfs:domain :Feature ;
+  rdfs:range xsd:string .
+
+:dlr_content_original a :FeatureKey ;
+  rdfs:comment "A string containing a boolean value indicating if the content is added by the creator (as opposed to generated)" ;
+  rdfs:domain :Feature ;
+  rdfs:range xsd:string .
+
+:dlr_content_readme a :FeatureKey, :BirdOnlyProperty ;
+  rdfs:comment "A string containing a boolean value indicating if the content is a readme" ;
+  rdfs:domain :Feature ;
+  rdfs:range xsd:string .
+
+:dlr_content_replaced a :FeatureKey, :BirdOnlyProperty ;
+  rdfs:comment "A string containing a boolean value indicating if the content is replaced (new version exists)" ;
+  rdfs:domain :Feature ;
+  rdfs:range xsd:string .
+
+:dlr_content_sharing_link a :FeatureKey, :BirdOnlyProperty ;
+  rdfs:comment "A string containing a boolean value indicating if the content is a sharing link (url to content without authorization)" ;
+  rdfs:domain :Feature ;
+  rdfs:range xsd:string .
+
+:dlr_content_sharing_link_expires a :FeatureKey, :BirdOnlyProperty ;
+:dlr_content_sharing_link_profile a :FeatureKey, :BirdOnlyProperty ;
+:dlr_content_sharing_link_ttlSeconds a :FeatureKey, :BirdOnlyProperty ;
+
+:dlr_content_sharing_link_url a :FeatureKey ;
+  rdfs:comment "A string of the sharing link url" ;
+  rdfs:domain :Feature ;
+  rdfs:range xsd:string .
+
+:dlr_content_size a :FeatureKey ;
+  rdfs:comment "A string with the content size used for human readable presentation" ;
+  rdfs:domain :Feature ;
+  rdfs:range xsd:string .
+
+:dlr_content_size_bytes a :FeatureKey ;
+  rdfs:comment "A string of the content size in bytes" ;
+  rdfs:domain :Feature ;
+  rdfs:range xsd:string .
+
+:dlr_content_time_created a :FeatureKey ;
+  rdfs:comment "A timestamp string defining when the content was created" ;
+  rdfs:domain :Feature ;
+  rdfs:range xsd:string .
+
+:dlr_content_title a :FeatureKey ;
+  rdfs:comment "A string of the content title" ;
+  rdfs:domain :Feature ;
+  rdfs:range xsd:string .
+
+:dlr_content_type a :FeatureKey ;
+  rdfs:comment "A string indicating what type of content this is (possible values: 'file' | 'link')" ;
+  rdfs:domain :Feature ;
+  rdfs:range xsd:string .
+
+:dlr_content_type_link_file a :FeatureKey ;
+  rdfs:comment "A string containing a boolean value indicating if the link seems like a file url" ;
+  rdfs:domain :Feature ;
+  rdfs:range xsd:string .
+
+:dlr_content_type_link_header_http_x_frame_options a :FeatureKey ;
+  rdfs:comment "A string containing the x frame options header value of the content link if present (possible values: 'sameorigin' | 'deny')" ;
+  rdfs:domain :Feature ;
+  rdfs:range xsd:string .
+
+:dlr_content_type_link_scheme_http a :FeatureKey ;
+  rdfs:comment "A string containing a boolean value indicating if the content is a http link (as opposed to https)" ;
+  rdfs:domain :Feature ;
+  rdfs:range xsd:string .
+
+:dlr_content_width a :FeatureKey ;
+  rdfs:comment "A numeric string containing the width of the content if applicable" ;
+  rdfs:domain :Feature ;
+  rdfs:range xsd:string .
+
+:dlr_contributor_identifier a :FeatureKey ;
+  rdfs:comment "The unique identifier of a contributor" ;
+  rdfs:domain :Feature ;
+  rdfs:range xsd:string .
+
+:dlr_contributor_name a :FeatureKey ;
+  rdfs:comment "A string containing the name of the contributor" ;
+  rdfs:domain :Feature ;
+  rdfs:range xsd:string .
+
+:dlr_contributor_type a :FeatureKey ;
+  rdfs:comment "A string containing the type of the contributor (ContributorTypes...)" ;
+  rdfs:domain :Feature ;
+  rdfs:range xsd:string .
+
+:dlr_creator_identifier a :FeatureKey ;
+  rdfs:comment "The unique identifier of a creator" ;
+  rdfs:domain :Feature ;
+  rdfs:range xsd:string .
+
+:dlr_creator_name a :FeatureKey ;
+  rdfs:comment "The name of the creator" ;
+  rdfs:domain :Feature ;
+  rdfs:range xsd:string .
+
+:dlr_creator_order a :FeatureKey, :BirdOnlyProperty ;
+  rdfs:comment "A numeric string indicating the placement when ordering creators" ;
+  rdfs:domain :Feature ;
+  rdfs:range xsd:string .
+
+:dlr_creator_time_created a :FeatureKey ;
 
 :dlr_description a :FeatureKey ;
   rdfs:comment "A textual description of the resource" ;
   rdfs:domain :Feature ;
   rdfs:range xsd:string .
 
-:dlr_type a :FeatureKey ;
-  rdfs:comment "The kind of thing the resource is, either \"file\" or \"link\"" ;
+dlr_identifier a :FeatureKey ;
+  rdfs:comment "The unique identifier of a resource" ;
   rdfs:domain :Feature ;
   rdfs:range xsd:string .
 
-:dlr_title_alternative a :FeatureKey, :BirdOnlyProperty ;
-  rdfs:comment "An alternative title for the resource, potentially a translation" ;
+dlr_identifier_doi a :FeatureKey ;
+  rdfs:comment "The DOI assigned to the resource" ;
+  rdfs:domain :Feature ;
+  rdfs:range xsd:string .
+
+dlr_identifier_handle a :FeatureKey ;
+  rdfs:comment "The Handle assigned to the resource" ;
+  rdfs:domain :Feature ;
+  rdfs:range xsd:string .
+
+dlr_license_identifier a :FeatureKey ;
+  rdfs:comment "The unique identifier of a license" ;
+  rdfs:domain :Feature ;
+  rdfs:range xsd:string .
+
+:dlr_license a :FeatureKey ;
+  rdfs:comment "A string containing a boolean value indicating if the resource is a License" ;
+  rdfs:domain :Feature ;
+  rdfs:range xsd:string .
+
+:dlr_license_code a :FeatureKey ;
+  rdfs:comment "A string containing the code of the license (possible values: TODO)" ;
+  rdfs:domain :Feature ;
+  rdfs:range xsd:string .
+
+:dlr_license_description a :FeatureKey ;
+  rdfs:comment "A textual description of the license" ;
+  rdfs:domain :Feature ;
+  rdfs:range xsd:string .
+
+:dlr_license_description_en a :FeatureKey ;
+  rdfs:comment "A textual description of the license in english" ;
+  rdfs:domain :Feature ;
+  rdfs:range xsd:string .
+
+:dlr_license_description_no a :FeatureKey ;
+  rdfs:comment "A textual description of the license in norwegian" ;
+  rdfs:domain :Feature ;
+  rdfs:range xsd:string .
+
+:dlr_license_issuer a :FeatureKey ;
+  rdfs:comment "A string representing license issuer" ;
+  rdfs:domain :Feature ;
+  rdfs:range xsd:string .
+
+:dlr_license_name a :FeatureKey ;
+  rdfs:comment "A string containing the name license" ;
+  rdfs:domain :Feature ;
+  rdfs:range xsd:string .
+
+:dlr_license_name_en a :FeatureKey ;
+  rdfs:comment "A string containing the name license in english" ;
+  rdfs:domain :Feature ;
+  rdfs:range xsd:string .
+
+:dlr_license_name_no a :FeatureKey ;
+  rdfs:comment "A string containing the name license in norwegian" ;
+  rdfs:domain :Feature ;
+  rdfs:range xsd:string .
+
+:dlr_license_restriction_private_access_only a :FeatureKey ;
+
+:dlr_license_url a :FeatureKey ;
+  rdfs:comment "A string containing the url to the official license details" ;
+  rdfs:domain :Feature ;
+  rdfs:range xsd:string .
+
+:dlr_license_url_en a :FeatureKey ;
+  rdfs:comment "A string containing the url to the official license details in english" ;
+  rdfs:domain :Feature ;
+  rdfs:range xsd:string .
+
+:dlr_license_url_image a :FeatureKey ;
+  rdfs:comment "A string containing an url to the license icon" ;
+  rdfs:domain :Feature ;
+  rdfs:range xsd:string .
+
+:dlr_license_url_no a :FeatureKey ;
+  rdfs:comment "A string containing the url to the official license details in norwegian" ;
+  rdfs:domain :Feature ;
+  rdfs:range xsd:string .
+
+:dlr_licensehelper_contains_other_peoples_work a :FeatureKey ;
+  rdfs:comment "A string indicating if the resource contains other people than the creator's work (possible values: 'yes' | 'no')" ;
+  rdfs:domain :Feature ;
+  rdfs:range xsd:string .
+
+:dlr_licensehelper_usage_cleared_with_owner a :FeatureKey ;
+  rdfs:comment "A string indicating that the usage is cleared with the creator (possible values: 'yes_other' | 'no_clearance')" ;
+  rdfs:domain :Feature ;
+  rdfs:range xsd:string .
+
+:dlr_licensehelper_resource_restriction a :FeatureKey ;
+  rdfs:comment "A string indicating if the creator wants to restrict usage and sharing of the resource (possible values: 'yes' | 'CC BY 4.0')" ;
+  rdfs:domain :Feature ;
+  rdfs:range xsd:string .
+
+:dlr_licensehelper_others_can_modify_and_build_upon a :FeatureKey ;
+  rdfs:comment "A string indicating if the creator wants to allow modifications of the resource (possible values: 'yes' | 'NC')" ;
+  rdfs:domain :Feature ;
+  rdfs:range xsd:string .
+
+:dlr_licensehelper_can_be_used_commercially a :FeatureKey ;
+  rdfs:comment "A string indicating if the creator allows commercial usage of the resource (possible values: 'primary_yes' | 'ND' | 'share_alike')" ;
+  rdfs:domain :Feature ;
+  rdfs:range xsd:string ..
+
+:dlr_observational_count a :FeatureKey, :BirdOnlyProperty ;
+  rdfs:comment "A number string defining the number of observations in a data set" ;
+  rdfs:domain :Feature ;
+  rdfs:range xsd:string .
+
+:dlr_owner_identifier a :FeatureKey ;
+  rdfs:comment "The unique identifier of an owner" ;
+  rdfs:domain :Feature ;
+  rdfs:range xsd:string .
+
+:dlr_owner_subject a :FeatureKey ;
+  rdfs:comment "The subject of an owner" ;
+  rdfs:domain :Feature ;
+  rdfs:range xsd:string .
+
+:dlr_owner_time_created a :FeatureKey ;
+  rdfs:comment "A timestamp string defining when the owner was created" ;
+  rdfs:domain :Feature ;
+  rdfs:range xsd:string .
+
+:dlr_publication_identifier a :FeatureKey ;
+  rdfs:comment "The unique identifier of a publication" ;
+  rdfs:domain :Feature ;
+  rdfs:range xsd:string .
+
+:dlr_publication_publisher_identifier a :FeatureKey ;
+  rdfs:comment "The unique identifier of a publication publisher" ;
+  rdfs:domain :Feature ;
+  rdfs:range xsd:string .
+
+:dlr_publication_time_created a :FeatureKey ;
+  rdfs:comment "A timestamp string defining when the publication was created" ;
+  rdfs:domain :Feature ;
+  rdfs:range xsd:string .
+
+:dlr_publication_publisher_code a :FeatureKey ;
+  rdfs:comment "The code of a publication publisher" ;
+  rdfs:domain :Feature ;
+  rdfs:range xsd:string .
+
+:dlr_publisher_entity_type a :FeatureKey ;
+:dlr_publisher_name a :FeatureKey ;
+
+:dlr_publication_publisher_name a :FeatureKey ;
+  rdfs:comment "The name of the publication publisher" ;
+  rdfs:domain :Feature ;
+  rdfs:range xsd:string .
+
+:dlr_readme a :FeatureKey, :BirdOnlyProperty ;
+  rdfs:comment "WE DO NOT KNOW" ;
+  rdfs:domain :Feature ;
+  rdfs:range xsd:string .
+
+:dlr_resource a :FeatureKey ;
+  rdfs:comment "A string containing a boolean value indicating if the resource is a Resource" ;
+  rdfs:domain :Feature ;
+  rdfs:range xsd:string .
+
+:dlr_resource_learning a :FeatureKey ;
+:dlr_state a :FeatureKey ;
+:dlr_state_message a :FeatureKey ;
+:dlr_status_deleted a :FeatureKey ;
+
+:dlr_status_published a :FeatureKey ;
+  rdfs:comment "A string containing a boolean value indicating if the resource is published" ;
+  rdfs:domain :Feature ;
+  rdfs:range xsd:string .
+
+:dlr_storage_id a :FeatureKey ;
+  rdfs:comment "A string containing the institution code of publishing institution" ;
   rdfs:domain :Feature ;
   rdfs:range xsd:string .
 
 :dlr_subject_nsi_id a :FeatureKey, :BirdOnlyProperty ;
   rdfs:comment "A Norwegian Science Index (NVI) identifier numeric string" ;
+  rdfs:domain :Feature ;
+  rdfs:range xsd:string .
+
+:dlr_submitter_email a :FeatureKey ;
+  rdfs:comment "A string containing the subject (user id) of the registrator" ;
+  rdfs:domain :Feature ;
+  rdfs:range xsd:string .
+
+:dlr_thumbnail_default a :FeatureKey ;
+  rdfs:comment "A string containing a boolean value indicating if this content thumbnail should be used for the Resource" ;
+  rdfs:domain :Feature ;
+  rdfs:range xsd:string .
+
+:dlr_thumbnail_url a :FeatureKey ;
+  rdfs:comment "A string containing the url of an external thumbnail for this content" ;
+  rdfs:domain :Feature ;
+  rdfs:range xsd:string .
+
+:dlr_time_created a :FeatureKey ;
+  rdfs:comment "A timestamp string defining when the resource was created" ;
   rdfs:domain :Feature ;
   rdfs:range xsd:string .
 
@@ -73,47 +456,50 @@
   rdfs:domain :Feature ;
   rdfs:range xsd:string .
 
-:dlr_observational_count a :FeatureKey, :BirdOnlyProperty ;
-  rdfs:comment "A number string defining the number of observations in a data set" ;
-  rdfs:domain :Feature ;
-  rdfs:range xsd:string .
-
-:dlr_readme a :FeatureKey, :BirdOnlyProperty ;
-  rdfs:comment "WE DO NOT KNOW" ;
-  rdfs:domain :Feature ;
-  rdfs:range xsd:string .
-
-:dlr_licensehelper_contains_other_peoples_work a :FeatureKey ;
-  rdfs:comment "A boolean string indicating if the resource contains other people than the creator's work (possible values: FIX THIS)" ;
-  rdfs:domain :Feature ;
-  rdfs:range xsd:string .
-
-:dlr_licensehelper_usage_cleared_with_owner a :FeatureKey ;
-  rdfs:comment "A string indicating that the usage is cleared with the creator (possible values: FIX THIS)" ;
-  rdfs:domain :Feature ;
-  rdfs:range xsd:string .
-
-:dlr_licensehelper_resource_restriction a :FeatureKey ;
-  rdfs:comment "A textual description of the resource" ;
-  rdfs:domain :Feature ;
-  rdfs:range xsd:string .
-
-:dlr_licensehelper_others_can_modify_and_build_upon a :FeatureKey ;
-  rdfs:comment "A textual description of the resource" ;
-  rdfs:domain :Feature ;
-  rdfs:range xsd:string .
-:dlr_licensehelper_can_be_used_commerciall a :FeatureKey ;
-  rdfs:comment "A textual description of the resource" ;
-  rdfs:domain :Feature ;
-  rdfs:range xsd:string .
-
 :dlr_time_published a :FeatureKey ;
   rdfs:comment "A timestamp string defining when the resource was published" ;
   rdfs:domain :Feature ;
   rdfs:range xsd:string .
 
-:dlr_status_published a :FeatureKey ;
-  rdfs:comment "A string containing a boolean value indicating if the resource is published" ;
+:dlr_title a :FeatureKey ;
+  rdfs:comment "The name given to the resource by its creator" ;
   rdfs:domain :Feature ;
   rdfs:range xsd:string .
+
+:dlr_title_alternative a :FeatureKey, :BirdOnlyProperty ;
+  rdfs:comment "An alternative title for the resource, potentially a translation" ;
+  rdfs:domain :Feature ;
+  rdfs:range xsd:string .
+
+:dlr_type a :FeatureKey ;
+  rdfs:comment "The kind of thing the resource was initialized with, either \"file\" or \"link\"" ;
+  rdfs:domain :Feature ;
+  rdfs:range xsd:string .
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
