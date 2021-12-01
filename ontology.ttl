@@ -224,17 +224,17 @@
   rdfs:range xsd:string .
 
 :dlr_contributor_identifier a :FeatureKey ;
-  rdfs:comment "The unique identifier of a contributor" ;
+  rdfs:comment "The unique identifier of a resource contributor" ;
   rdfs:domain :Feature ;
   rdfs:range xsd:string .
 
 :dlr_contributor_name a :FeatureKey ;
-  rdfs:comment "A string containing the name of the contributor" ;
+  rdfs:comment "A string containing the name of the resource contributor" ;
   rdfs:domain :Feature ;
   rdfs:range xsd:string .
 
 :dlr_contributor_type a :FeatureKey ;
-  rdfs:comment '''A string containing the type of the contributor (possible values: "ContactPerson", "DataCollector", "DataCurator",
+  rdfs:comment '''A string containing the type of the resource contributor (possible values: "ContactPerson", "DataCollector", "DataCurator",
                "DataManager", "Distributor", "Editor", "HostingInstitution", "Other", "Producer", "ProjectLeader", "ProjectManager", "ProjectMember",
                "RegistrationAgency", "RegistrationAuthority", "RelatedPerson", "ResearchGroup", "Researcher", "Rightsholder", "Sponsor", "Supervisor",
                "WorkpackageLeader")''' ;
@@ -242,22 +242,22 @@
   rdfs:range xsd:string .
 
 :dlr_creator_identifier a :FeatureKey ;
-  rdfs:comment "The unique identifier of a creator" ;
+  rdfs:comment "The unique identifier of a resource creator" ;
   rdfs:domain :Feature ;
   rdfs:range xsd:string .
 
 :dlr_creator_name a :FeatureKey ;
-  rdfs:comment "The name of the creator" ;
+  rdfs:comment "The name of the resource creator" ;
   rdfs:domain :Feature ;
   rdfs:range xsd:string .
 
 :dlr_creator_order a :FeatureKey, :BirdOnlyProperty ;
-  rdfs:comment "A numeric string indicating the placement when ordering creators" ;
+  rdfs:comment "A numeric string indicating the placement when ordering resource creators" ;
   rdfs:domain :Feature ;
   rdfs:range xsd:string .
 
 :dlr_creator_time_created a :FeatureKey ;
-  rdfs:comment "A timestamp string defining when the creator was created" ;
+  rdfs:comment "A timestamp string defining when the resource creator was created" ;
   rdfs:domain :Feature ;
   rdfs:range xsd:string .
 
@@ -387,37 +387,42 @@
   rdfs:range xsd:string .
 
 :dlr_owner_identifier a :FeatureKey ;
-  rdfs:comment "The unique identifier of an owner" ;
+  rdfs:comment "The unique identifier of a resource owner" ;
   rdfs:domain :Feature ;
   rdfs:range xsd:string .
 
 :dlr_owner_subject a :FeatureKey ;
-  rdfs:comment "The subject of an owner" ;
+  rdfs:comment "The subject of a resource owner" ;
   rdfs:domain :Feature ;
   rdfs:range xsd:string .
 
 :dlr_owner_time_created a :FeatureKey ;
-  rdfs:comment "A timestamp string defining when the owner was created" ;
+  rdfs:comment "A timestamp string defining when the resource owner was created" ;
   rdfs:domain :Feature ;
   rdfs:range xsd:string .
 
 :dlr_publication_identifier a :FeatureKey ;
-  rdfs:comment "The unique identifier of a publication" ;
+  rdfs:comment "The unique identifier of a resource publication" ;
   rdfs:domain :Feature ;
   rdfs:range xsd:string .
 
 :dlr_publication_publisher_identifier a :FeatureKey ;
-  rdfs:comment "The unique identifier of a publication publisher" ;
+  rdfs:comment "The unique identifier of a resource publication publisher" ;
   rdfs:domain :Feature ;
   rdfs:range xsd:string .
 
 :dlr_publication_time_created a :FeatureKey ;
-  rdfs:comment "A timestamp string defining when the publication was created" ;
+  rdfs:comment "A timestamp string defining when the resource publication was created" ;
   rdfs:domain :Feature ;
   rdfs:range xsd:string .
 
 :dlr_publication_publisher_code a :FeatureKey ;
-  rdfs:comment "A string containing the code of a publication publisher" ;
+  rdfs:comment "A string containing the code of a resource publication publisher" ;
+  rdfs:domain :Feature ;
+  rdfs:range xsd:string .
+
+:dlr_publication_publisher_name a :FeatureKey ;
+  rdfs:comment "A string containing the name of the resource publication publisher" ;
   rdfs:domain :Feature ;
   rdfs:range xsd:string .
 
@@ -428,11 +433,6 @@
 
 :dlr_publisher_name a :FeatureKey ;
   rdfs:comment "A string containing the name of the publisher" ;
-  rdfs:domain :Feature ;
-  rdfs:range xsd:string .
-
-:dlr_publication_publisher_name a :FeatureKey ;
-  rdfs:comment "A string containing the name of the publication publisher" ;
   rdfs:domain :Feature ;
   rdfs:range xsd:string .
 
