@@ -591,6 +591,51 @@
   rdfs:range xsd:string .
 
 
+# Worklists
+
+:WorklistItem a rdfs:Class ;
+  rdfs:comment "User roles for authorization" .
+
+:identifier a rdf:Property ;
+  rdfs:comment "A string containing the unique identifier for this worklist item" ;
+  rdfs:domain :WorklistItem ;
+  rdfs:range xsd:string .
+
+:type a rdf:Property ;
+  rdfs:comment '''A string containing the type of the worklist item (possible values: "dlr_resource_complaint", 
+  "dlr_resource_identifier_doi_request", "dlr_resource_owner_request", "dlr_resource_access_request", "dlr_resource_expired" )''' ;
+  rdfs:domain :WorklistItem ;
+  rdfs:range xsd:string .
+
+:description a rdf:Property ;
+  rdfs:comment "A string containing the additional info regarding this worklist item" ;
+  rdfs:domain :WorklistItem ;
+  rdfs:range xsd:string .
+
+:institution a rdf:Property ;
+  rdfs:comment "A string containing institution code this worklist item belongs to" ;
+  rdfs:domain :WorklistItem ;
+  rdfs:range xsd:string .
+
+:resourceIdentifier a rdfs:Property ;
+  rdfs:comment "A string containing the identifier this worklist item belongs to" ;
+  rdfs:domain :WorklistItem ;
+  rdfs:range xsd:string .
+
+:state a rdfs:Property ;
+  rdfs:comment "A string containing the current state of the worklist item" ;
+  rdfs:domain :WorklistItem ;
+  rdfs:range xsd:string .
+
+:stateTimestamp a rdfs:Property ;
+  rdfs:comment "A timestamp string defining when the current state of worklist item was set" ;
+  rdfs:domain :WorklistItem ;
+  rdfs:range xsd:string .
+
+:submittedTimestamp a rdfs:Property ;
+  rdfs:comment "A timestamp string defining when the worklist item was created" ;
+  rdfs:domain :WorklistItem ;
+  rdfs:range xsd:string .
 
 
 
