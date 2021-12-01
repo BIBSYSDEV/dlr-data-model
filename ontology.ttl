@@ -234,7 +234,10 @@
   rdfs:range xsd:string .
 
 :dlr_contributor_type a :FeatureKey ;
-  rdfs:comment "A string containing the type of the contributor (ContributorTypes...)" ;
+  rdfs:comment '''A string containing the type of the contributor (possible values: "ContactPerson", "DataCollector", "DataCurator",
+               "DataManager", "Distributor", "Editor", "HostingInstitution", "Other", "Producer", "ProjectLeader", "ProjectManager", "ProjectMember",
+               "RegistrationAgency", "RegistrationAuthority", "RelatedPerson", "ResearchGroup", "Researcher", "Rightsholder", "Sponsor", "Supervisor",
+               "WorkpackageLeader")''' ;
   rdfs:domain :Feature ;
   rdfs:range xsd:string .
 
@@ -263,22 +266,22 @@
   rdfs:domain :Feature ;
   rdfs:range xsd:string .
 
-dlr_identifier a :FeatureKey ;
+:dlr_identifier a :FeatureKey ;
   rdfs:comment "The unique identifier of a resource" ;
   rdfs:domain :Feature ;
   rdfs:range xsd:string .
 
-dlr_identifier_doi a :FeatureKey ;
+:dlr_identifier_doi a :FeatureKey ;
   rdfs:comment "The DOI assigned to the resource" ;
   rdfs:domain :Feature ;
   rdfs:range xsd:string .
 
-dlr_identifier_handle a :FeatureKey ;
+:dlr_identifier_handle a :FeatureKey ;
   rdfs:comment "The Handle assigned to the resource" ;
   rdfs:domain :Feature ;
   rdfs:range xsd:string .
 
-dlr_license_identifier a :FeatureKey ;
+:dlr_license_identifier a :FeatureKey ;
   rdfs:comment "The unique identifier of a license" ;
   rdfs:domain :Feature ;
   rdfs:range xsd:string .
@@ -376,7 +379,7 @@ dlr_license_identifier a :FeatureKey ;
 :dlr_licensehelper_can_be_used_commercially a :FeatureKey ;
   rdfs:comment "A string indicating if the creator allows commercial usage of the resource (possible values: 'primary_yes' | 'ND' | 'share_alike')" ;
   rdfs:domain :Feature ;
-  rdfs:range xsd:string ..
+  rdfs:range xsd:string .
 
 :dlr_observational_count a :FeatureKey, :BirdOnlyProperty ;
   rdfs:comment "A number string defining the number of observations in a data set" ;
@@ -515,13 +518,13 @@ dlr_license_identifier a :FeatureKey ;
   rdfs:comment "Resource link type describing the relationship between resources" .
 
 :type a rdf:Property ;
-  rdfs:comment """A string describing the relationship between two resources (possible values: 'AUTHORITY', 'COURSE', 'COURSE_RESOURCE',
-              'ISSUE', 'JOURNAL', 'MAGAZINE', 'PROJECT', 'PROJECT_WORK_PACKAGE', 'CONTRIBUTED_BY', 'FUNDED_BY', 'FUNDER', 'CREATOR',
-              'PUBLISHER', 'PUBLICATION', 'CONTRIBUTOR', 'OWNER', 'READING_LIST', 'RESOURCE_LICENSE', 'RESOURCE_LICENSED_BY',
-              'RESOURCE_CONTENT', 'RESOURCE_CONTENT_OWNED_BY', 'RESOURCE_CONTENT_SHARING_LINK', 'RESOURCE_CONTAINING',
-              'RESOURCE_CREATED_BY', 'RESOURCE_PUBLISHED_BY', 'RESOURCE_CONTRIBUTED_BY', 'RESOURCE_OWNED_BY', 'RESOURCE_VERSION_NEXT',
-              'RESOURCE_VERSION_PREVIOUS', 'RESOURCE_CONTENT_VERSION_NEXT', 'RESOURCE_CONTENT_VERSION_PREVIOUS', 'PROJECT_OWNED_BY',
-              'PROJECT_WORK_PACKAGE_OWNED_BY')""" ;
+  rdfs:comment '''A string describing the relationship between two resources (possible values: "AUTHORITY", "COURSE", "COURSE_RESOURCE",
+              "ISSUE", "JOURNAL", "MAGAZINE", "PROJECT", "PROJECT_WORK_PACKAGE", "CONTRIBUTED_BY", "FUNDED_BY", "FUNDER", "CREATOR",
+              "PUBLISHER", "PUBLICATION", "CONTRIBUTOR", "OWNER", "READING_LIST", "RESOURCE_LICENSE", "RESOURCE_LICENSED_BY",
+              "RESOURCE_CONTENT", "RESOURCE_CONTENT_OWNED_BY", "RESOURCE_CONTENT_SHARING_LINK", "RESOURCE_CONTAINING",
+              "RESOURCE_CREATED_BY", "RESOURCE_PUBLISHED_BY", "RESOURCE_CONTRIBUTED_BY", "RESOURCE_OWNED_BY", "RESOURCE_VERSION_NEXT",
+              "RESOURCE_VERSION_PREVIOUS", "RESOURCE_CONTENT_VERSION_NEXT", "RESOURCE_CONTENT_VERSION_PREVIOUS", "PROJECT_OWNED_BY",
+              "PROJECT_WORK_PACKAGE_OWNED_BY")''' ;
   rdfs:domain :ResourceLink ;
   rdfs:range xsd:string .
 
