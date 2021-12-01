@@ -84,7 +84,7 @@
   rdfs:range xsd:string .
 
 :dlr_content_content_type a :FeatureKey ;
-  rdfs:comment "A string representing the content type (possible values: TODO)" ;
+  rdfs:comment "A string representing the content type (possible values: 'text', 'image', 'audio', 'video', 'application')" ;
   rdfs:domain :Feature ;
   rdfs:range xsd:string .
 
@@ -103,8 +103,15 @@
   rdfs:domain :Feature ;
   rdfs:range xsd:string .
 
-:dlr_content_indexable a :FeatureKey ;
-:dlr_content_indexed a :FeatureKey ;
+:dlr_content_indexable a :FeatureKey, :BirdOnlyProperty ;
+  rdfs:comment "A string containing a boolean value indicating if the content is indexable" ;
+  rdfs:domain :Feature ;
+  rdfs:range xsd:string .
+
+:dlr_content_indexed a :FeatureKey, :BirdOnlyProperty ;
+  rdfs:comment "A string containing a boolean value indicating if the content is indexed" ;
+  rdfs:domain :Feature ;
+  rdfs:range xsd:string .
 
 :dlr_content_kaltura_presentation_id a :FeatureKey ;
   rdfs:comment "A string containing the kaltura id of the contents kaltura entry" ;
@@ -112,6 +119,9 @@
   rdfs:range xsd:string .
 
 :dlr_content_locale a :FeatureKey ;
+  rdfs:comment "A string containing the locale of the content" ;
+  rdfs:domain :Feature ;
+  rdfs:range xsd:string .
 
 :dlr_content_master a :FeatureKey, :BirdOnlyProperty ;
   rdfs:comment "A string containing a boolean value indicating if the content is master (initial upload/link)" ;
@@ -119,6 +129,9 @@
   rdfs:range xsd:string .
 
 :dlr_content_master_part a :FeatureKey, :BirdOnlyProperty ;
+  rdfs:comment "A string specifying the content is considered master (when master content is more than one content))" ;
+  rdfs:domain :Feature ;
+  rdfs:range xsd:string .
 
 :dlr_content_mime_type a :FeatureKey ;
   rdfs:comment "A string specifying the mime-type of the content" ;
@@ -146,8 +159,19 @@
   rdfs:range xsd:string .
 
 :dlr_content_sharing_link_expires a :FeatureKey, :BirdOnlyProperty ;
+  rdfs:comment "A timestamp string defining when the sharing link expires" ;
+  rdfs:domain :Feature ;
+  rdfs:range xsd:string .
+
 :dlr_content_sharing_link_profile a :FeatureKey, :BirdOnlyProperty ;
+  rdfs:comment "A string defining the sharing link profile (possible values: 'dlr_content_sharing_link_profile')" ;
+  rdfs:domain :Feature ;
+  rdfs:range xsd:string .
+
 :dlr_content_sharing_link_ttlSeconds a :FeatureKey, :BirdOnlyProperty ;
+  rdfs:comment "A numeric string defining ttl seconds for this sharing link" ;
+  rdfs:domain :Feature ;
+  rdfs:range xsd:string .
 
 :dlr_content_sharing_link_url a :FeatureKey ;
   rdfs:comment "A string of the sharing link url" ;
@@ -230,6 +254,9 @@
   rdfs:range xsd:string .
 
 :dlr_creator_time_created a :FeatureKey ;
+  rdfs:comment "A timestamp string defining when the creator was created" ;
+  rdfs:domain :Feature ;
+  rdfs:range xsd:string .
 
 :dlr_description a :FeatureKey ;
   rdfs:comment "A textual description of the resource" ;
@@ -262,7 +289,7 @@ dlr_license_identifier a :FeatureKey ;
   rdfs:range xsd:string .
 
 :dlr_license_code a :FeatureKey ;
-  rdfs:comment "A string containing the code of the license (possible values: TODO)" ;
+  rdfs:comment "A string containing the code of the license" ;
   rdfs:domain :Feature ;
   rdfs:range xsd:string .
 
@@ -302,6 +329,9 @@ dlr_license_identifier a :FeatureKey ;
   rdfs:range xsd:string .
 
 :dlr_license_restriction_private_access_only a :FeatureKey ;
+  rdfs:comment "A string containing a boolean value indicating if the license should deny public sharing" ;
+  rdfs:domain :Feature ;
+  rdfs:range xsd:string .
 
 :dlr_license_url a :FeatureKey ;
   rdfs:comment "A string containing the url to the official license details" ;
@@ -384,20 +414,27 @@ dlr_license_identifier a :FeatureKey ;
   rdfs:range xsd:string .
 
 :dlr_publication_publisher_code a :FeatureKey ;
-  rdfs:comment "The code of a publication publisher" ;
+  rdfs:comment "A string containing the code of a publication publisher" ;
   rdfs:domain :Feature ;
   rdfs:range xsd:string .
 
 :dlr_publisher_entity_type a :FeatureKey ;
+  rdfs:comment "A string containing the type of the publisher (possible values: 'organization')" ;
+  rdfs:domain :Feature ;
+  rdfs:range xsd:string .
+
 :dlr_publisher_name a :FeatureKey ;
+  rdfs:comment "A string containing the name of the publisher" ;
+  rdfs:domain :Feature ;
+  rdfs:range xsd:string .
 
 :dlr_publication_publisher_name a :FeatureKey ;
-  rdfs:comment "The name of the publication publisher" ;
+  rdfs:comment "A string containing the name of the publication publisher" ;
   rdfs:domain :Feature ;
   rdfs:range xsd:string .
 
 :dlr_readme a :FeatureKey, :BirdOnlyProperty ;
-  rdfs:comment "WE DO NOT KNOW" ;
+  rdfs:comment "A string containing a readme text for this resource" ;
   rdfs:domain :Feature ;
   rdfs:range xsd:string .
 
@@ -407,9 +444,9 @@ dlr_license_identifier a :FeatureKey ;
   rdfs:range xsd:string .
 
 :dlr_resource_learning a :FeatureKey ;
-:dlr_state a :FeatureKey ;
-:dlr_state_message a :FeatureKey ;
-:dlr_status_deleted a :FeatureKey ;
+  rdfs:comment "A string containing a boolean value indicating if the resource is of type learning" ;
+  rdfs:domain :Feature ;
+  rdfs:range xsd:string .
 
 :dlr_status_published a :FeatureKey ;
   rdfs:comment "A string containing a boolean value indicating if the resource is published" ;
@@ -451,11 +488,6 @@ dlr_license_identifier a :FeatureKey ;
   rdfs:domain :Feature ;
   rdfs:range xsd:string .
 
-:dlr_time_released a :FeatureKey, :UnusedProperty ;
-  rdfs:comment "WE DO NOT KNOW" ;
-  rdfs:domain :Feature ;
-  rdfs:range xsd:string .
-
 :dlr_time_published a :FeatureKey ;
   rdfs:comment "A timestamp string defining when the resource was published" ;
   rdfs:domain :Feature ;
@@ -480,10 +512,83 @@ dlr_license_identifier a :FeatureKey ;
 
 
 
+:ResourceLink a rdfs:Class ;
+  rdfs:comment "Resource link type describing the relationship between resources" .
+
+:type a rdf:Property ;
+  rdfs:comment """A string describing the relationship between two resources (possible values: 'AUTHORITY', 'COURSE', 'COURSE_RESOURCE',
+              'ISSUE', 'JOURNAL', 'MAGAZINE', 'PROJECT', 'PROJECT_WORK_PACKAGE', 'CONTRIBUTED_BY', 'FUNDED_BY', 'FUNDER', 'CREATOR',
+              'PUBLISHER', 'PUBLICATION', 'CONTRIBUTOR', 'OWNER', 'READING_LIST', 'RESOURCE_LICENSE', 'RESOURCE_LICENSED_BY',
+              'RESOURCE_CONTENT', 'RESOURCE_CONTENT_OWNED_BY', 'RESOURCE_CONTENT_SHARING_LINK', 'RESOURCE_CONTAINING',
+              'RESOURCE_CREATED_BY', 'RESOURCE_PUBLISHED_BY', 'RESOURCE_CONTRIBUTED_BY', 'RESOURCE_OWNED_BY', 'RESOURCE_VERSION_NEXT',
+              'RESOURCE_VERSION_PREVIOUS', 'RESOURCE_CONTENT_VERSION_NEXT', 'RESOURCE_CONTENT_VERSION_PREVIOUS', 'PROJECT_OWNED_BY',
+              'PROJECT_WORK_PACKAGE_OWNED_BY')""" ;
+  rdfs:domain :ResourceLink ;
+  rdfs:range xsd:string .
+
+:resourceA a rdf:Property ;
+  rdfs:comment "A string containing a resource identifier" ;
+  rdfs:domain :ResourceLink ;
+  rdfs:range xsd:string .
+
+:resourceB a rdfs:Property ;
+  rdfs:comment "A string containing a resource identifier" ;
+  rdfs:domain :ResourceLink ;
+  rdfs:range xsd:string .
+
+:time a rdfs:Property ;
+  rdfs:comment "A timestamp string defining when the resource link was created" ;
+  rdfs:domain :ResourceLink ;
+  rdfs:range xsd:string .
 
 
 
 
+
+:ResourceTag a rdfs:Class ;
+  rdfs:comment "Resource tag describing a tag for a resource" .
+
+:resourceIdentifier a rdf:Property ;
+  rdfs:comment "A string containing a resource identifier" ;
+  rdfs:domain :ResourceTag ;
+  rdfs:range xsd:string .
+
+:tagType a rdfs:Property ;
+  rdfs:comment "A string containing a the type of this tag" ;
+  rdfs:domain :ResourceTag ;
+  rdfs:range xsd:string .
+
+:tagValue a rdfs:Property ;
+  rdfs:comment "A string containing the tag" ;
+  rdfs:domain :ResourceTag ;
+  rdfs:range xsd:string .
+
+
+
+
+
+:UserRole a rdfs:Class ;
+  rdfs:comment "User roles for authorization" .
+
+:user a rdf:Property ;
+  rdfs:comment "A string containing the subject" ;
+  rdfs:domain :UserRole ;
+  rdfs:range xsd:string .
+
+:object a rdfs:Property ;
+  rdfs:comment "A string containing the object" ;
+  rdfs:domain :UserRole ;
+  rdfs:range xsd:string .
+
+:role a rdfs:Property ;
+  rdfs:comment "A string containing the role" ;
+  rdfs:domain :UserRole ;
+  rdfs:range xsd:string .
+
+:time a rdfs:Property ;
+  rdfs:comment "A timestamp string defining when the User Role should expire" ;
+  rdfs:domain :UserRole ;
+  rdfs:range xsd:string .
 
 
 
