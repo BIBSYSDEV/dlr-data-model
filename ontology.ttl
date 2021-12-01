@@ -509,8 +509,7 @@ dlr_license_identifier a :FeatureKey ;
   rdfs:range xsd:string .
 
 
-
-
+# Resource links
 
 :ResourceLink a rdfs:Class ;
   rdfs:comment "Resource link type describing the relationship between resources" .
@@ -542,8 +541,7 @@ dlr_license_identifier a :FeatureKey ;
   rdfs:range xsd:string .
 
 
-
-
+# Resource tags
 
 :ResourceTag a rdfs:Class ;
   rdfs:comment "Resource tag describing a tag for a resource" .
@@ -564,8 +562,7 @@ dlr_license_identifier a :FeatureKey ;
   rdfs:range xsd:string .
 
 
-
-
+# User roles
 
 :UserRole a rdfs:Class ;
   rdfs:comment "User roles for authorization" .
